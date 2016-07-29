@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+chmod +x ./gradlew
+./gradlew --stacktrace androidDependencies
+./gradlew --stacktrace build
