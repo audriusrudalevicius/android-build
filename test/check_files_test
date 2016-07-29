@@ -2,20 +2,30 @@
 
 echo "Testing files in container"
 
-docker run -it $1 sh -c "test -x /usr/local/android-sdk-linux/tools/android" \
- || echo "No SDK found" && exit -1
+trap "exit 255" ERR SIGTERM
 
-docker run -it $1 sh -c "test -d /usr/local/android-sdk-linux/platforms/android-21" \
- || echo "No android-21 platform found" && exit -1
+echo "Testing gradle"
 
-docker run -it $1 sh -c "test -d /usr/local/android-sdk-linux/platforms/android-22" \
- || echo "No android-22 platform found" && exit -1
+docker run -it $1 sh -c "test -x /opt/packages/gradle/gradle-2.14/bin/gradle"
 
-docker run -it $1 sh -c "test -d /usr/local/android-sdk-linux/platforms/android-23" \
- || echo "No android-23 platform found" && exit -1
+echo "Testing SDK"
 
-docker run -it $1 sh -c "test -d /usr/local/android-sdk-linux/platforms/android-24" \
- || echo "No android-24 platform found" && exit -1
+docker run -it $1 sh -c "test -x /usr/local/android-sdk-linux/tools/android"
 
-docker run -it $1 sh -c "test -x /opt/packages/gradle/gradle-2.14/bin/gradle" \
- || echo "No gradle found" && exit -1
+echo "Testing android 21 platform"
+
+docker run -it $1 sh -c "test -d /usr/local/android-sdk-linux/platforms/android-21"
+
+echo "Testing android 22 platform"
+
+docker run -it $1 sh -c "test -d /usr/local/android-sdk-linux/platforms/android-22"
+
+echo "Testing android 23 platform"
+
+docker run -it $1 sh -c "test -d /usr/local/android-sdk-linux/platforms/android-23"
+
+echo "Testing android 24 platform"
+
+docker run -it $1 sh -c "test -d /usr/local/android-sdk-linux/platforms/android-24"
+
+exit 0
