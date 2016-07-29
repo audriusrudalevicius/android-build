@@ -38,7 +38,7 @@ ENV JAVA_OPTS -Xms256m -Xmx512m
 RUN echo "sdk.dir=$ANDROID_HOME" > local.properties
 
 # Add build scripts
-COPY ./scripts/* /usr/bin/
+COPY ./bin/* /usr/bin/
 
 # Setup project
 ENV PROJECT /project
