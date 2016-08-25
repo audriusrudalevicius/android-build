@@ -21,7 +21,7 @@ ENV PATH ${ANDROID_HOME}/tools:$ANDROID_HOME/platform-tools:$PATH
 # Install Android SDK components
 ENV ANDROID_SUPPORT_VERSION 24.0.0
 ENV ANDROID_AVD_HOME /root/.android/avd
-RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --filter extra-android-support,extra-android-m2repository,platform-tool,tools --no-ui -a
+RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --filter extra-android-support,extra-android-m2repository,platform-tool --no-ui -a
 RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --filter build-tools-22.0.1,build-tools-23.0.1,build-tools-23.0.2,build-tools-23.0.3,build-tools-21.1.2,build-tools-24.0.0,build-tools-24.0.1,build-tools-21.0.3,android-22,android-23,android-24 --no-ui -a
 RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --filter extra-google-google_play_services,extra-google-m2repository --no-ui -a
 
