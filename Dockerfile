@@ -43,7 +43,7 @@ RUN echo "sdk.dir=$ANDROID_HOME" > local.properties
 COPY ./bin/* /usr/bin/
 
 # Setup VM
-RUN echo y | android update sdk -a --no-ui --filter sys-img-armeabi-v7a-android-23
+RUN echo y | android update sdk -a --no-ui --filter sys-img-x86_64-google_apis-23
 RUN echo n | android create avd --force -n test -t android-23 --abi armeabi-v7a
 
 # Setup project
