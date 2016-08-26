@@ -44,7 +44,7 @@ COPY ./bin/* /usr/bin/
 
 # Setup VM
 RUN echo y | android update sdk -a --no-ui --filter sys-img-x86_64-google_apis-23
-RUN echo n | android create avd --force -n test -t android-23 --abi armeabi-v7a
+RUN echo n | android create avd --force -n test -t android-23 -g google_apis -b google_apis/x86_64
 
 # Setup project
 ENV PROJECT /project
